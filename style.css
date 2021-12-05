@@ -18,11 +18,12 @@ nav ul li {
 h1 {
 	font-size: 36px;
 	margin-bottom: 30px;
-	text-decoration: italic;
+	font-family: 'Meow Script', cursive;
 }
 
-h2 {
+h2, a, button {
 	font-size: 25px;
+	font-family: 'Cabin', sans-serif;
 }
 
 button {
