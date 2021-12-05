@@ -23,9 +23,9 @@ function submitDirections() {
         var maneuvers = leg.maneuvers;
 
         $("#result").html("");
-        $("#result").append("<br> <thead><tr>" + "<th class='col'>Narratives</th>" +
-            "<th class='col'>Distance</th>" + "<th class='col'>Time</th>" +
-            "<th class='col'>Thumbnail</th></tr></thead><tbody>")
+        $("#result").append("<br> <table><tr>" + "<th class='category'>Narratives</th>" +
+            "<th class='category'>Distance</th>" + "<th class='category'>Time</th>" +
+            "<th class='category'>Thumbnail</th></tr>")
 
         for (let i = 0; i < maneuvers.length - 1; i++) {
             $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
@@ -33,7 +33,7 @@ function submitDirections() {
                 "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>");
         }
 
-        $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr></tbody>");
+        $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr></table>");
 
         var LatLng = route.boundingBox.lr.lat + "," + route.boundingBox.lr.lng + "," + route.boundingBox.ul.lat + "," + route.boundingBox.ul.lng;
         var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
