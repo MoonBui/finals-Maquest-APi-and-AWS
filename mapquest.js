@@ -33,7 +33,8 @@ function submitDirections() {
                 "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>");
         }
 
-        $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr></table>");
+        $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>");
+        $("#result").append("</table");
 
         var LatLng = route.boundingBox.lr.lat + "," + route.boundingBox.lr.lng + "," + route.boundingBox.ul.lat + "," + route.boundingBox.ul.lng;
         var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
