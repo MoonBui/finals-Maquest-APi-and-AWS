@@ -23,7 +23,7 @@ function submitDirections() {
         var maneuvers = leg.maneuvers;
 
         $("#result").html("");
-        $("#result").append("<br> <table border='1'><tr>" + "<th class='category'>Narratives</th>" +
+        $("#result").append("<br> <table><tr>" + "<th class='category'>Narratives</th>" +
             "<th class='category'>Distance</th>" + "<th class='category'>Time</th>" +
             "<th class='category'>Thumbnail</th></tr>")
 
