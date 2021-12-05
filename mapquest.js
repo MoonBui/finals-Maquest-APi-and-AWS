@@ -23,9 +23,9 @@ function submitDirections() {
         var maneuvers = leg.maneuvers;
 
         $("#result").html("");
-        $("#result").append("<br> <table><tr>" + "<th class='category'>Narratives</th>" +
-            "<th class='category'>Distance</th>" + "<th class='category'>Time</th>" +
-            "<th class='category'>Thumbnail</th></tr>")
+        $("#result").append("<br> <table><tr>" + "<th scope='col'>Narratives</th>" +
+            "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
+            "<th scope='col'>Thumbnail</th></tr>")
 
         for (let i = 0; i < maneuvers.length - 1; i++) {
             $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
@@ -40,7 +40,7 @@ function submitDirections() {
         var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
 
         $("#result").append("<br> <h1 class='elevation-chart'>Elevation Chart</h1>");
-        $("#result").append("<img src='" + chart + "' width='400' height='300'>");
+        $("#result").append("<img id='chart' src='" + chart + "' width='400' height='300'>");
 
         console.log(data);
 
