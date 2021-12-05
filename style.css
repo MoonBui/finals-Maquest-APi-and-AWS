@@ -21,7 +21,7 @@ h1 {
 	font-family: 'Meow Script', cursive;
 }
 
-h2, a, button {
+h2, a, button, label {
 	font-size: 25px;
 	font-family: 'Cabin', sans-serif;
 }
