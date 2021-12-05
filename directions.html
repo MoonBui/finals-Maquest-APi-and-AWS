@@ -6,7 +6,7 @@
    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css?version=1.6" type="text/css">
     	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="mapquest.js?rev=1.7"></script>
+	<script src="mapquest.js?rev=2.0"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Pacifico&display=swap" rel="stylesheet">	
@@ -16,7 +16,7 @@
 	<div class="container">
 		<nav> <ul>
 			<li><a href="index.html">Homepage</a></li>
-			<li><a href="directions.html" target="_blank">Direction</a></li>
+			<li><a href="directions.html" target="_blank">Directions</a></li>
 			<li><a href="history.html" target="_blank">History</a></li>
        		</ul> </nav>
 
@@ -25,7 +25,7 @@
 			<input type="text" id="location" name="location" placeholder="street, city, state"> <br>
 			<label for="destination">Enter your destination address:</label> <br>
 			<input type="text" id="destination" name="destination" placeholder="street, city, state"> <br> 
-			<button onclick="submitDirections()"> Submit </button>
+			<button type="button" onclick="submitDirections()"> Submit </button>
 		</form>
 
 		<p id="result"></p>
