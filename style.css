@@ -76,10 +76,13 @@ input {
     width: 400px;
 }
 
+th {
+    display: unset !important;
+}
+
 table,
 th,
 td {
-    display: table-header-group;
     border: 1px solid black;
     padding: 10px;
     border-collapse: collapse;
@@ -88,4 +91,10 @@ td {
 .elevation-chart {
     display: flex;
     justify-content: center;
+}
+
+#chart {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
