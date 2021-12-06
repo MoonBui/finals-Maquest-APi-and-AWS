@@ -25,13 +25,13 @@ h1 {
 
 h2,
 a,
-button,
+.std-butt,
 label {
     font-size: 25px;
     font-family: 'Cabin', sans-serif;
 }
 
-button {
+.std-butt {
     margin: 15px;
     background-color: white;
     border-radius: 10px;
@@ -46,7 +46,7 @@ a {
     text-decoration: none;
 }
 
-button:hover:not(#details),
+.std-butt:hover:not(#details),
 button a:hover {
     background-color: black;
     color: white;
@@ -123,4 +123,8 @@ table {
 #details {
     background-color: #8cc63f;
     color: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: 'Cabin', sans-serif;
 }
