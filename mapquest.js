@@ -55,26 +55,18 @@ function submitDirections() {
 
         console.log(data);
 
-        // value to send to php rest server
-        var locations = from + " " + to;
-        var date = new Date();
-        var info = JSON.stringify(maneuvers);
 
+        // object to send to db
         var objectToSend = {
-            "location": [from, to],
-            "sensor": "web",
-            "value": maneuvers
+            from: from,
+            to: to,
+            length: maneuvers.length,
+            value: maneuvers,
+            chart: chart
         };
 
-        // sendToRest(objectToSend);
-        a = $.ajax({
-            url: "http://buinm.aws.csi.miamioh.edu/final.php",
-            method: "GET",
-            data: {
-                method: "setLookup",
-                value: JSON.stringify(objectToSend)
-            }
-        })
+
+        sendToRest(objectToSend);
 
 
     }).fail(function(error) {
@@ -83,13 +75,19 @@ function submitDirections() {
 
 }
 
-// function sendToRest(x) {
-//     a = $.ajax({
-//         url: "http://buinm.aws.csi.miamioh.edu/final.php?",
-//         method: "GET",
-//         data: {
-//             method: "setLookup",
-//             value: JSON.stringify(x)
-//         }
-//     });
-// }
+function sendToRest(x) {
+    a = $.ajax({
+        url: "http://buinm.aws.csi.miamioh.edu/final.php",
+        method: "GET",
+        data: {
+            method: "setLookup",
+            location: "45056",
+            sensor: "web",
+            value: JSON.stringify(x)
+        }
+    }).done(function(data) {
+
+    }).fail(function(error) {
+
+    });
+}
