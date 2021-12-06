@@ -25,7 +25,7 @@ function submitDirections() {
         $("#result").html("");
         $("#result").append("<br> <table><tr>" + "<th scope='col'>Narratives</th>" +
             "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
-            "<th scope='col'>Thumbnail</th></tr>")
+            "<th scope='col'>Thumbnail</th></tr><tbody>")
 
         for (let i = 0; i < maneuvers.length - 1; i++) {
             $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
@@ -34,7 +34,7 @@ function submitDirections() {
         }
 
         $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>");
-        $("#result").append("</table>");
+        $("#result").append("</tbody></table>");
 
         var LatLng = route.boundingBox.lr.lat + "," + route.boundingBox.lr.lng + "," + route.boundingBox.ul.lat + "," + route.boundingBox.ul.lng;
         var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
