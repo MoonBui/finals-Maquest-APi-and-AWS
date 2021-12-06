@@ -62,7 +62,7 @@ function submitDirections() {
             from: from.value,
             to: to.value,
             length: maneuvers.length,
-            value: maneuvers,
+            maneuvers: maneuvers,
             chart: chart
         };
 
@@ -89,6 +89,36 @@ function sendToRest(x) {
         }
     }).done(function(data) {
 
+    }).fail(function(error) {
+
+    });
+}
+
+//Method to get results from db
+function requestData(x) {
+    var date = document.getElementById("date");
+    var maxResult = document.getElementsById("lines");
+
+    a = $.ajax({
+        url: "http://buinm.aws.csi.miamioh.edu/final.php",
+        method: "GET",
+        data: {
+            method: "getLookup",
+            date: date.value
+        }
+    }).done(function(data) {
+        var results = data.results;
+        var minLength = (results.length <= maxResult) ? results.length : maxResult;
+        var resultTable = "";
+
+        $("#result").html("");
+        resultTable += "<br> <table><thead class='thead'><tr>" + "<td>No.</td>" +
+            "<td>Date</td>" + "<td>From</td>" + "<td>To</td>" +
+            "<td>Number of maneuvers</td>" + "<td></td>" + "</tr></thead><tbody>";
+
+        for (let i = 0; i < minLength; i++) {
+
+        }
     }).fail(function(error) {
 
     });
