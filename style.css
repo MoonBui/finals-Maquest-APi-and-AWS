@@ -1,7 +1,13 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1590272456521-1bbe160a18ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
+    background-repeat: repeat-x;
+    background-size: 100% 150px;
+}
+
+
 /*landing page and nav bar*/
 
 nav {
-    background-color: black;
     display: flex;
     justify-content: flex-end;
     padding: 0px;
