@@ -28,9 +28,9 @@ function submitDirections() {
         //     "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
         //     "<th scope='col'>Thumbnail</th></tr><tbody>")
 
-        resultTable += "<br> <table><thead><tr>" + "<th scope='col'>Narratives</th>" +
-            "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
-            "<th scope='col'>Thumbnail</th></tr></thead><tbody>";
+        resultTable += "<br> <table><thead class='thead'><tr>" + "<td>Narratives</td>" +
+            "<td>Distance</td>" + "<td>Time</td>" +
+            "<td>Thumbnail</td></tr></thead><tbody>";
 
         for (let i = 0; i < maneuvers.length - 1; i++) {
             // $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
