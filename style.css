@@ -12,7 +12,7 @@ nav {
 
 nav ul li {
     list-style: none;
-    /* display: inline-block; */
+    display: inline-flex;
     font-size: 30px;
     margin-right: 5rem;
 }
