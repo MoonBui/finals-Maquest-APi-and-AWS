@@ -116,7 +116,7 @@ function requestData() {
         var resultTable = "";
 
         $("#result").html("");
-        resultTable += "<br> <table><thead class='thead'><tr>" + "<td>No.</td>" +
+        resultTable += "<br> <table class='table-history'><thead class='thead thead-history'><tr>" + "<td>No.</td>" +
             "<td>Date & Time</td>" + "<td>From</td>" + "<td>To</td>" +
             "<td>Number of maneuvers</td>" + "<td></td>" + "</tr></thead><tbody>";
 
@@ -125,7 +125,7 @@ function requestData() {
 
             resultTable += "<tr><td>" + (i + 1) + "</td><td>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td>" +
-                value.length + "</td><td></td>" + "</tr>";
+                value.length + "</td><button type='button' onclick=''> Details </button><td></td>" + "</tr>";
         }
 
         $("#result").append(resultTable);
