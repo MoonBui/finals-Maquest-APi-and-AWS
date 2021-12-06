@@ -66,8 +66,8 @@ function submitDirections() {
 
 function sendToRest(x) {
     a = $.ajax({
-        url: "http://buinm.aws.csi.miamioh.edu/final.php",
-        method: "POST",
+        url: "http://buinm.aws.csi.miamioh.edu/final.php?",
+        method: "GET",
         data: {
             method: "setLookup",
             value: JSON.stringify(x)
