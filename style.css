@@ -134,3 +134,8 @@ table {
     font-size: 20px;
     font-family: 'Cabin', sans-serif;
 }
+
+td,
+tr {
+    padding: 5rem;
+}
