@@ -97,7 +97,7 @@ function sendToRest(x) {
 // Function to show details results when button is clicked
 function showResults(x) {
     var sth = document.getElementById("detail-result");
-    sth.html("");
+    sth.innerHTML = "";
     var maneuvers = JSON.parse(x.value.maneuvers);
     var detailTable = "";
 
