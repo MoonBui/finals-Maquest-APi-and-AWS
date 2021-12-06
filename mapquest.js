@@ -44,7 +44,33 @@ function submitDirections() {
 
         console.log(data);
 
+        // value to send to php rest server
+        var locations = from + " " + to;
+        var date = new Date();
+        var info = JSON.stringify(maneuvers);
+
+        var objectToSend = {
+            "locations": [from, to],
+            "sensor": "web",
+            "value": maneuvers
+        };
+
+        sendToRest(objectToSend);
+
+
     }).fail(function(error) {
         $("#result").html("Error occured");
+    });
+
+}
+
+function sendToRest(x) {
+    a = $.ajax({
+        url: "http://buinm.aws.csi.miamioh.edu/final.php",
+        method: "POST",
+        data: {
+            method: "setLookup",
+            value: JSON.stringify(x)
+        }
     });
 }
