@@ -97,7 +97,7 @@ function sendToRest(x) {
 //Method to get results from db
 function requestData() {
     var date = document.getElementById("date");
-    var maxResult = document.getElementById("lines");
+    var maxResult = document.getElementById("lines").value;
 
     a = $.ajax({
         url: "http://buinm.aws.csi.miamioh.edu/final.php",
