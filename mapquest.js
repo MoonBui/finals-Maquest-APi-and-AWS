@@ -66,7 +66,7 @@ function submitDirections() {
             chart: chart
         };
 
-
+        // Call method to send to db
         sendToRest(objectToSend);
 
 
@@ -107,7 +107,7 @@ function requestData() {
             date: date.value
         }
     }).done(function(data) {
-        // Check results
+        // Check results in log
         console.log(date.value);
         console.log(data);
 
@@ -115,6 +115,7 @@ function requestData() {
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
         var resultTable = "";
 
+        // Overview of search results
         $("#result").html("");
         resultTable += "<br> <div style='overflow-x:auto'></div><table id='table-history'><thead class='thead' id='thead-history'><tr>" + "<td>No.</td>" +
             "<td>Date & Time</td>" + "<td>From</td>" + "<td>To</td>" +
@@ -125,11 +126,42 @@ function requestData() {
 
             resultTable += "<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
-                value.length + "</td><td><button id='details' type='button' onclick=''> Details </button></td>" + "</tr>";
+                value.length + "</td><td><button class='details' type='button' onclick='showResults(" + i + ")'> Details </button></td>" + "</tr>";
+        }
+        resultTable += "</tbody></table></div>";
+
+        // Append overview table of results
+        $("#result").append(resultTable);
+
+        // Function to show details results when button is clicked
+        function showResults(x) {
+            var sth = document.getElementById("detail-result");
+            sth.html("");
+            var maneuvers = JSON.parse(results[x].value.maneuvers);
+            var detailTable = "";
+
+            for (let i = 0; i < maneuvers.length - 1; i++) {
+                // $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
+                //     maneuvers[i].distance + "</td><td>" + maneuvers[i].time + "</td><td>" +
+                //     "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>");
+                detailTable += "<tr><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
+                    maneuvers[i].distance + "</td><td class='center'>" + maneuvers[i].time + "</td><td>" +
+                    "<img class='img-result' src='" + maneuvers[i].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
+            }
+
+            // $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>");
+            // $("#result").append("</tbody></table>");
+
+            detailTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
+            $("#detail-result").append(detailTable);
+
+            var LatLng = route.boundingBox.lr.lat + "," + route.boundingBox.lr.lng + "," + route.boundingBox.ul.lat + "," + route.boundingBox.ul.lng;
+            var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
+
+            $("detail-result").append("<br> <h1 class='elevation-chart'>Elevation Chart</h1>");
+            $("detail-result").append("<img id='chart' src='" + chart + "' width='400' height='300'>");
         }
 
-        resultTable += "</tbody></table></div>";
-        $("#result").append(resultTable);
     }).fail(function(error) {
 
     });
