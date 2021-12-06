@@ -115,6 +115,7 @@ table {
 #table-history,
 #table-history td {
     border: none;
+    border-collapse: collapse;
 }
 
 #table-history tr {
