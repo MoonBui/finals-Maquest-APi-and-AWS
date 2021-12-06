@@ -95,7 +95,7 @@ function sendToRest(x) {
 }
 
 //Method to get results from db
-function requestData(x) {
+function requestData() {
     var date = document.getElementById("date");
     var maxResult = document.getElementsById("lines");
 
@@ -117,7 +117,9 @@ function requestData(x) {
             "<td>Number of maneuvers</td>" + "<td></td>" + "</tr></thead><tbody>";
 
         for (let i = 0; i < minLength; i++) {
-
+            resultTable += "<tr><td>" + (i + 1) + "</td><td>" + date.value + "</td><td>" +
+                results[i].value.from + "</td><td>" + results[i].value.to + "</td><td>" +
+                results[i].value.length + "</td><td></td>" + "</tr>";
         }
     }).fail(function(error) {
 

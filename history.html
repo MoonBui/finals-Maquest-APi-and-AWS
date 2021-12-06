@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css?version=1.6" type="text/css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="mapquest.js?rev=1.7"></script>
+    <script src="mapquest.js?rev=2.2"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Pacifico&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
             <input type="date" id="date" name="date" placeholder="YYYY/MM/DD"> <br>
             <label for="lines">Enter maximum number of results you want shown:</label> <br>
             <input type="number" id="lines" name="lines" min="1"> <br>
-            <button onclick="submitDirections()"> Submit </button>
+            <button type="button" onclick="requestData()"> Submit </button>
         </form>
 
         <p id="result"></p>
