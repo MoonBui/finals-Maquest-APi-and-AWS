@@ -113,9 +113,12 @@ table {
 /*History.html stylesheet*/
 
 #table-history,
-#table-history td,
+#table-history td {
+    border: none;
+}
+
 #table-history tr {
-    border: grey;
+    border: 2px solid grey;
 }
 
 #thead-history {
