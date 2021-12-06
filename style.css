@@ -115,7 +115,7 @@ table {
 #table-history,
 #table-history td,
 #table-history tr {
-    border: rgb(194, 194, 194);
+    border: grey;
 }
 
 #thead-history {
