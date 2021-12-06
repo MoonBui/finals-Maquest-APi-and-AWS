@@ -1,6 +1,7 @@
 /*landing page and nav bar*/
 
 nav {
+    background-color: black;
     display: flex;
     justify-content: flex-end;
     padding: 0px;
