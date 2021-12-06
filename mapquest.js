@@ -127,6 +127,8 @@ function requestData() {
                 value.from + "</td><td>" + value.to + "</td><td>" +
                 value.length + "</td><td></td>" + "</tr>";
         }
+
+        $("#result").append(resultTable);
     }).fail(function(error) {
 
     });
