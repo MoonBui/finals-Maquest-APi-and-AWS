@@ -96,8 +96,13 @@ table {
     justify-content: center;
 }
 
-#chart {
+#chart,
+.img-result {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.center {
+    text-align: center;
 }

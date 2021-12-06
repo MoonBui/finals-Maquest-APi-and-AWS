@@ -36,8 +36,8 @@ function submitDirections() {
             // $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
             //     maneuvers[i].distance + "</td><td>" + maneuvers[i].time + "</td><td>" +
             //     "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>");
-            resultTable += "<tr><td> " + maneuvers[i].narrative + "</td><td>" +
-                maneuvers[i].distance + "</td><td>" + maneuvers[i].time + "</td><td>" +
+            resultTable += "<tr><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
+                maneuvers[i].distance + "</td><td class='center'>" + maneuvers[i].time + "</td><td>" +
                 "<img class='img-result' src='" + maneuvers[i].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
         }
 
