@@ -112,8 +112,9 @@ table {
 
 /*History.html stylesheet*/
 
-#table-history {
-    border: none;
+#table-history,
+#table-history td {
+    border: rgb(194, 194, 194);
 }
 
 #thead-history {

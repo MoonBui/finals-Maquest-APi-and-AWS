@@ -128,6 +128,7 @@ function requestData() {
                 value.length + "</td><td><button id='details' type='button' onclick=''> Details </button></td>" + "</tr>";
         }
 
+        resultTable += "</tbody></table>";
         $("#result").append(resultTable);
     }).fail(function(error) {
 
