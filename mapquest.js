@@ -1,14 +1,13 @@
 var mapURL = "http://www.mapquestapi.com/directions/v2/route?key=";
 var chartURL = "http://open.mapquestapi.com/elevation/v1/chart?key=";
 var key = "6wGZkKsmoHlB0C42ujYQGAD2EKtYWyBA";
-var from = "";
-var to = "";
+
 
 // submitDirections();
 
 function submitDirections() {
-    from = document.getElementById("location");
-    to = document.getElementById("destination");
+    var from = document.getElementById("location");
+    var to = document.getElementById("destination");
     a = $.ajax({
         url: `${mapURL}${key}&from=${encodeURIComponent(from.value)}&to=${encodeURIComponent(to.value)}`,
         method: "GET",
@@ -60,8 +59,8 @@ function submitDirections() {
 
         // object to send to db
         var objectToSend = {
-            from: from,
-            to: to,
+            from: from.value,
+            to: to.value,
             length: maneuvers.length,
             value: maneuvers,
             chart: chart
