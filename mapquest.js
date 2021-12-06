@@ -58,8 +58,8 @@ function submitDirections() {
 
         // object to send to db
         var objectToSend = {
-            from: from,
-            to: to,
+            from: document.getElementById("location"),
+            to: document.getElementById("destination"),
             length: maneuvers.length,
             value: maneuvers,
             chart: chart
@@ -75,10 +75,11 @@ function submitDirections() {
 
 }
 
+// Method to send to db
 function sendToRest(x) {
     a = $.ajax({
         url: "http://buinm.aws.csi.miamioh.edu/final.php",
-        method: "GET",
+        method: "POST",
         data: {
             method: "setLookup",
             location: "45056",
