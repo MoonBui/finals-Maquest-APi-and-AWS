@@ -123,8 +123,8 @@ function requestData() {
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
 
-            resultTable += "<tr><td>" + (i + 1) + "</td><td>" + results[i].date + "</td><td>" +
-                value.from + "</td><td>" + value.to + "</td><td>" +
+            resultTable += "<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
+                value.from + "</td><td>" + value.to + "</td><td class='center'>" +
                 value.length + "</td><td><button id='details' type='button' onclick=''> Details </button></td>" + "</tr>";
         }
 

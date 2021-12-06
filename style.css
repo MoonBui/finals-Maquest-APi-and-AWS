@@ -113,7 +113,8 @@ table {
 /*History.html stylesheet*/
 
 #table-history,
-#table-history td {
+#table-history td,
+#table-history tr {
     border: rgb(194, 194, 194);
 }
 
