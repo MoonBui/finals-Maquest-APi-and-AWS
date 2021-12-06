@@ -118,7 +118,7 @@ table {
 }
 
 #table-history tr {
-    border: 2px solid rgb(180, 180, 180);
+    border-bottom: 2px solid rgb(180, 180, 180);
 }
 
 #thead-history {
