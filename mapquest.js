@@ -117,13 +117,13 @@ function requestData() {
 
         $("#result").html("");
         resultTable += "<br> <table><thead class='thead'><tr>" + "<td>No.</td>" +
-            "<td>Date</td>" + "<td>From</td>" + "<td>To</td>" +
+            "<td>Date & Time</td>" + "<td>From</td>" + "<td>To</td>" +
             "<td>Number of maneuvers</td>" + "<td></td>" + "</tr></thead><tbody>";
 
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
 
-            resultTable += "<tr><td>" + (i + 1) + "</td><td>" + date.value + "</td><td>" +
+            resultTable += "<tr><td>" + (i + 1) + "</td><td>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td>" +
                 value.length + "</td><td></td>" + "</tr>";
         }
