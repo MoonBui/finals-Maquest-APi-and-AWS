@@ -121,9 +121,11 @@ function requestData() {
             "<td>Number of maneuvers</td>" + "<td></td>" + "</tr></thead><tbody>";
 
         for (let i = 0; i < minLength; i++) {
+            var value = JSON.parse(results[i].value);
+
             resultTable += "<tr><td>" + (i + 1) + "</td><td>" + date.value + "</td><td>" +
-                results[i].value.from + "</td><td>" + results[i].value.to + "</td><td>" +
-                results[i].value.length + "</td><td></td>" + "</tr>";
+                value.from + "</td><td>" + value.to + "</td><td>" +
+                value.length + "</td><td></td>" + "</tr>";
         }
     }).fail(function(error) {
 
