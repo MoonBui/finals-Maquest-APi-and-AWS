@@ -21,20 +21,30 @@ function submitDirections() {
         var leg = legs[0];
         var time = leg.time;
         var maneuvers = leg.maneuvers;
+        var resultTable = "";
 
         $("#result").html("");
-        $("#result").append("<br> <table><tr>" + "<th scope='col'>Narratives</th>" +
+        // $("#result").append("<br> <table><tr>" + "<th scope='col'>Narratives</th>" +
+        //     "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
+        //     "<th scope='col'>Thumbnail</th></tr><tbody>")
+
+        resultTable += "<br> <table><tr>" + "<th scope='col'>Narratives</th>" +
             "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
-            "<th scope='col'>Thumbnail</th></tr><tbody>")
+            "<th scope='col'>Thumbnail</th></tr><tbody>";
 
         for (let i = 0; i < maneuvers.length - 1; i++) {
-            $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
+            // $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
+            //     maneuvers[i].distance + "</td><td>" + maneuvers[i].time + "</td><td>" +
+            //     "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>");
+            resultTable += "<tr><td> " + maneuvers[i].narrative + "</td><td>" +
                 maneuvers[i].distance + "</td><td>" + maneuvers[i].time + "</td><td>" +
-                "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>");
+                "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>";
         }
 
-        $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>");
-        $("#result").append("</tbody></table>");
+        // $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>");
+        // $("#result").append("</tbody></table>");
+
+        resultTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
 
         var LatLng = route.boundingBox.lr.lat + "," + route.boundingBox.lr.lng + "," + route.boundingBox.ul.lat + "," + route.boundingBox.ul.lng;
         var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
