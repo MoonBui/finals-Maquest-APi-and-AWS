@@ -107,6 +107,10 @@ function requestData() {
             date: date.value
         }
     }).done(function(data) {
+        // Check results
+        console.log(date.value);
+        console.log(data);
+
         var results = data.results;
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
         var resultTable = "";
