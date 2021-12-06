@@ -61,12 +61,20 @@ function submitDirections() {
         var info = JSON.stringify(maneuvers);
 
         var objectToSend = {
-            "locations": [from, to],
+            "location": [from, to],
             "sensor": "web",
             "value": maneuvers
         };
 
-        sendToRest(objectToSend);
+        // sendToRest(objectToSend);
+        a = $.ajax({
+            url: "http://buinm.aws.csi.miamioh.edu/final.php",
+            method: "GET",
+            data: {
+                method: "setLookup",
+                value: JSON.stringify(objectToSend)
+            }
+        })
 
 
     }).fail(function(error) {
@@ -75,13 +83,13 @@ function submitDirections() {
 
 }
 
-function sendToRest(x) {
-    a = $.ajax({
-        url: "http://buinm.aws.csi.miamioh.edu/final.php?",
-        method: "GET",
-        data: {
-            method: "setLookup",
-            value: JSON.stringify(x)
-        }
-    });
-}
+// function sendToRest(x) {
+//     a = $.ajax({
+//         url: "http://buinm.aws.csi.miamioh.edu/final.php?",
+//         method: "GET",
+//         data: {
+//             method: "setLookup",
+//             value: JSON.stringify(x)
+//         }
+//     });
+// }
