@@ -46,7 +46,7 @@ a {
     text-decoration: none;
 }
 
-button:hover,
+button:hover:not(#details),
 button a:hover {
     background-color: black;
     color: white;
@@ -118,4 +118,9 @@ table {
 
 #thead-history {
     border-bottom: 4px solid black;
+}
+
+#details {
+    background-color: #8cc63f;
+    color: white;
 }
