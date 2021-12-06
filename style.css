@@ -116,6 +116,7 @@ table {
 #table-history td {
     border: none;
     border-collapse: collapse;
+    max-width: 100%;
 }
 
 #table-history tr {
