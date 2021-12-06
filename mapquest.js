@@ -29,7 +29,7 @@ function submitDirections() {
         //     "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
         //     "<th scope='col'>Thumbnail</th></tr><tbody>")
 
-        resultTable += "<br> <table><thead class='thead'><tr>" + "<td>Narratives</td>" +
+        resultTable += "<br> <table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
             "<td>Distance</td>" + "<td>Time</td>" +
             "<td>Thumbnail</td></tr></thead><tbody>";
 

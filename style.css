@@ -83,8 +83,8 @@ input {
     font-weight: bold;
 }
 
-table,
-td {
+.border,
+.border td {
     border: 1px solid black;
     padding: 10px;
 }
@@ -113,9 +113,12 @@ table {
 /*History.html stylesheet*/
 
 #table-history,
-#table-history td,
+#table-history td {
+    border: none;
+}
+
 #table-history tr {
-    border: 2px solid grey;
+    border: 2px solid rgb(180, 180, 180);
 }
 
 #thead-history {
