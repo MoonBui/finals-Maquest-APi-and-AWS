@@ -128,8 +128,8 @@ function requestData() {
 
 
             // Table that can collapse and show details when clicking button
-            resultTable += "<div id='collapseOne" + i + "' class='collapse show'>";
-            resultTable += "<table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
+            // resultTable += "<div id='collapse" + i + "' class='collapse show'>";
+            resultTable += "<table id='collapse" + i + "' class='border collapse show'><thead class='thead'><tr>" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" +
                 "<td>Thumbnail</td></tr></thead><tbody>";
 
