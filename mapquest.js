@@ -129,7 +129,7 @@ function requestData() {
 
             // Table that can collapse and show details when clicking button
             // resultTable += "<div id='collapse" + i + "' class='collapse show'>";
-            resultTable += "<br> <table class='border collapse show'><thead class='thead'><tr id='collapse" + i + "'class='collapse show' >" + "<td>Narratives</td>" +
+            resultTable += "<br> <table class='border'><thead class='thead'><tr id='collapse" + i + "'class='collapse show' >" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" +
                 "<td>Thumbnail</td></tr></thead><tbody>";
 
@@ -142,7 +142,7 @@ function requestData() {
             // Detail table
             resultTable += "<tr id='collapse" + i + "'class='collapse show'><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
             resultTable += "<br> <h1 class='elevation-chart'>Elevation Chart</h1>";
-            resultTable += "<img id='chart' src='" + value.chart + "' width='400' height='300'></div>";
+            resultTable += "<img class='collapse show' id='chart' src='" + value.chart + "' width='400' height='300'></div>";
 
         }
         resultTable += "</tbody></table>";
