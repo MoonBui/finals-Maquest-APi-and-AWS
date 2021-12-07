@@ -14,11 +14,17 @@ function submitDirections() {
         // data: JSON.stringify(locations)
     }).done(function(data) {
         console.log(data);
+        if (data.info.statusCode != 0) {
+            $("#result").html("Error occured:" + data.info.messages[0]);
+            return;
+        }
 
         var route = data.route;
         var legs = route.legs;
 
         var route = data.route;
+
+
         var legs = route.legs;
 
         var leg = legs[0];
@@ -68,7 +74,6 @@ function submitDirections() {
     }).fail(function(error) {
         console.log(error);
         $("#result").html("Error occured:" + error.message);
-
     });
 
 }
@@ -107,6 +112,11 @@ function requestData() {
         // Check results in log
         console.log(date.value);
         console.log(data);
+
+        if (data.info.statusCode != 0) {
+            $("#result").html("Error occured:" + data.info.messages[0]);
+            return;
+        }
 
         var results = data.results;
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
