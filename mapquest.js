@@ -108,7 +108,7 @@ function requestData() {
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
 
 
-        $("#thead-history").append("<tr><td>No.</td><td>Date & Time</td><td>From</td><td>To</td><td>Number of maneuvers</td><td></td> </tr>");
+        $("#thead-history").append("<tr><td>No.</td><td>Date & Time</td><td>From</td><td>To</td><td>Number of maneuvers</td><td></td></tr>");
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
             var maneuvers = value.maneuvers;
@@ -118,7 +118,7 @@ function requestData() {
                 value.length + "</td><td><button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapse" +
                 i + "' aria-expanded='false' + aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>");
 
-            $("#table-body").append("<td colspna='6'><div id='collapse" + i + "' class='collapse show accordion-body'></div>")
+            $("#table-body").append("<td colspan='6'><div id='collapse" + i + "' class='collapse show accordion-body'></div>")
             var resultTable = "<table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" + "<td>Thumbnail</td></tr></thead><tbody>";
 
