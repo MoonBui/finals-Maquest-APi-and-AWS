@@ -121,15 +121,15 @@ function requestData() {
             // Overview line
             resultTable += "<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
-                value.length + "</td><td><button class='details' type='button' data-toggle='collapse' data-target='#collapse" +
-                i + "' aria-expanded='true' aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>";
+                value.length + "</td><td><button class='details accordion-toggle' type='button' data-toggle='collapse' data-target='#collapse" +
+                i + "' aria-expanded='true'> Details </button></td>" + "</tr>";
 
 
 
 
             // Table that can collapse and show details when clicking button
             // resultTable += "<div id='collapse" + i + "' class='collapse show'>";
-            resultTable += "<br> <table class='border'><thead class='thead'><tr id='collapse" + i + "'class='collapse show' >" + "<td>Narratives</td>" +
+            resultTable += "<br> <table class='border accordion-body'><thead class='thead'><tr id='collapse" + i + "'class='collapse show' >" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" +
                 "<td>Thumbnail</td></tr></thead><tbody>";
 
