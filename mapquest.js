@@ -132,6 +132,8 @@ function requestData() {
             }
 
             resultTable += "</tbody></table></td>";
+            resultTable += "<br> <h1 class='elevation-chart'>Elevation Chart</h1>";
+            resultTable += "<img class='accordion-body collapse show' id='chart' src='" + value.chart + "' width='400' height='300'></div>";
             $("#collapse" + i).append(resultTable);
         }
 
