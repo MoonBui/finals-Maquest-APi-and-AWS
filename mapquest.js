@@ -119,7 +119,7 @@ function requestData() {
                 i + "' aria-expanded='false' + aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>");
 
             $("#table-body").append("<td colspan='6'><div id='collapse" + i + "' class='collapse show accordion-body'></div>")
-            var resultTable = "<table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
+            var resultTable = "<table id='dtable' class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" + "<td>Thumbnail</td></tr></thead><tbody>";
 
             for (let j = 0; j < maneuvers.length; j++) {

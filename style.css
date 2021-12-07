@@ -90,6 +90,7 @@ input {
     font-weight: bold;
 }
 
+#dtable,
 .border,
 .border td {
     border: 1px solid black;
