@@ -13,6 +13,8 @@ function submitDirections() {
         method: "GET",
         // data: JSON.stringify(locations)
     }).done(function(data) {
+        console.log(data);
+
         var route = data.route;
         var legs = route.legs;
 
@@ -47,7 +49,7 @@ function submitDirections() {
         $("#result").append("<br> <h1 class='elevation-chart'>Elevation Chart</h1>");
         $("#result").append("<img id='chart' src='" + chart + "' width='400' height='300'>");
 
-        console.log(data);
+
 
 
         // object to send to db
