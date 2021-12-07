@@ -141,8 +141,8 @@ function requestData() {
 
             // Detail table
             resultTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
-            $("#result").append("<br> <h1 class='elevation-chart'>Elevation Chart</h1>");
-            $("#result").append("<img id='chart' src='" + value.chart + "' width='400' height='300'></div>");
+            resultTable += "<br> <h1 class='elevation-chart'>Elevation Chart</h1>";
+            resultTable += "<img id='chart' src='" + value.chart + "' width='400' height='300'></div>";
 
         }
         resultTable += "</tbody></table>";
