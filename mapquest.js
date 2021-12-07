@@ -108,6 +108,7 @@ function requestData() {
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
 
 
+        // Append 
         $("#thead-history").append("<tr><td>No.</td><td>Date & Time</td><td>From</td><td>To</td><td>Number of maneuvers</td><td></td></tr>");
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
@@ -116,7 +117,7 @@ function requestData() {
             $("#table-body").append("<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
                 value.length + "</td><td><button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapse" +
-                i + "' aria-expanded='false' + aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>");
+                i + "' aria-expanded='true' + aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>");
 
             $("#table-body").append("<td colspan='6'><div id='collapse" + i + "' class='collapse show accordion-body'></div>")
             var resultTable = "<table id='dtable' class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
@@ -124,7 +125,7 @@ function requestData() {
 
             for (let j = 0; j < maneuvers.length; j++) {
                 resultTable += "<tr><td>" + maneuvers[j].narrative + "</td><td class='center'>" + maneuvers[j].distance +
-                    "</td><td class='center'>" + maneuvers[j].time + "</td><td>" + "<img class='img-result' src='" +
+                    "</td><td class='center'>" + maneuvers[j].time + "</td><td>" + "<img class='img-result img-box' src='" +
                     maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
             }
 
