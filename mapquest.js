@@ -118,7 +118,7 @@ function requestData() {
                 value.length + "</td><td><button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapse" +
                 i + "' aria-expanded='false' + aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>");
 
-            $("#table-body").append("<div id='collapse" + i + "' class='collapse show accordion-body'></div>")
+            $("#table-body").append("<td colspna='6'><div id='collapse" + i + "' class='collapse show accordion-body'></div>")
             var resultTable = "<table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" + "<td>Thumbnail</td></tr></thead><tbody>";
 
@@ -128,7 +128,7 @@ function requestData() {
                     maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
             }
 
-            resultTable += "</tbody></table>";
+            resultTable += "</tbody></table></td>";
             $("#collapse" + i).append(resultTable);
         }
 
