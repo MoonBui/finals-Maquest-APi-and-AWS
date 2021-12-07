@@ -108,12 +108,11 @@ function requestData() {
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
         var resultTable = "";
 
+        $("#thead-history").append("<tr><td>No.</td><td>Date & Time</td><td>From</td><td>To</td><td>Number of maneuvers</td><td></td> </tr>");
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
             var maneuvers = value.maneuvers;
 
-
-            $("#thead-history").append("<tr><td>No.</td><td>Date & Time</td><td>From</td><td>To</td><td>Number of maneuvers</td><td></td> </tr>");
             $("#thead-history").append("<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
                 value.length + "</td><td><button class='details accordion-toggle' type='button' data-toggle='collapse' data-target='#collapse" +
