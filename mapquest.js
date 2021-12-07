@@ -129,18 +129,18 @@ function requestData() {
 
             // Table that can collapse and show details when clicking button
             // resultTable += "<div id='collapse" + i + "' class='collapse show'>";
-            resultTable += "<table id='collapse" + i + "' class='border collapse show'><thead class='thead'><tr>" + "<td>Narratives</td>" +
+            resultTable += "<br> <table class='border collapse show'><thead class='thead'><tr id='collapse" + i + "'class='collapse show' >" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" +
                 "<td>Thumbnail</td></tr></thead><tbody>";
 
             for (let i = 0; i < maneuvers.length - 1; i++) {
-                resultTable += "<tr><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
+                resultTable += "<tr id='collapse" + i + "'class='collapse show'><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
                     maneuvers[i].distance + "</td><td class='center'>" + maneuvers[i].time + "</td><td>" +
                     "<img class='img-result' src='" + maneuvers[i].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
             }
 
             // Detail table
-            resultTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
+            resultTable += "<tr id='collapse" + i + "'class='collapse show'><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
             resultTable += "<br> <h1 class='elevation-chart'>Elevation Chart</h1>";
             resultTable += "<img id='chart' src='" + value.chart + "' width='400' height='300'></div>";
 
