@@ -64,7 +64,7 @@ function submitDirections() {
 
 
     }).fail(function(error) {
-        $("#result").html("Error occured");
+        $("#result").html("Error occured:" + error.message);
     });
 
 }
@@ -115,14 +115,14 @@ function requestData() {
 
             $("#table-body").append("<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
-                value.length + "</td><td><button class='details accordion-toggle' type='button' data-toggle='collapse' data-target='#collapse" +
+                value.length + "</td><td><button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapse" +
                 i + "' aria-expanded='false' + aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>");
 
             $("#table-body").append("<tr><div id='collapse" + i + "' class='collapse show accordion-body'></div></tr>")
             var resultTable = "<table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
                 "<td>Distance</td>" + "<td>Time</td>" + "<td>Thumbnail</td></tr></thead><tbody>";
 
-            for (let j = 0; j < maneuvers.length - 1; j++) {
+            for (let j = 0; j < maneuvers.length; j++) {
                 resultTable += "<tr><td>" + maneuvers[j].narrative + "</td><td class='center'>" + maneuvers[j].distance +
                     "</td><td class='center'>" + maneuvers[j].time + "</td><td>" + "<img class='img-result' src='" +
                     maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
@@ -175,7 +175,7 @@ function requestData() {
 
 
     }).fail(function(error) {
-
+        $("#error").html(error.message);
     });
 
 
