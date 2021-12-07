@@ -64,7 +64,9 @@ function submitDirections() {
 
 
     }).fail(function(error) {
+        console.log(error);
         $("#result").html("Error occured:" + error.message);
+
     });
 
 }
@@ -176,6 +178,7 @@ function requestData() {
 
 
     }).fail(function(error) {
+        console.log(error);
         $("#error").html(error.message);
     });
 
