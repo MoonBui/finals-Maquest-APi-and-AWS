@@ -109,7 +109,7 @@ function requestData() {
 
     a = $.ajax({
         url: "http://buinm.aws.csi.miamioh.edu/final.php",
-        method: "GET",
+        method: "POST",
         data: {
             method: "getLookup",
             date: date.value
