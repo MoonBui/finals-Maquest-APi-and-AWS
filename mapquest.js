@@ -116,7 +116,7 @@ function requestData() {
 
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
-            var maneuvers = JSON.parse(value.maneuvers);
+            // var maneuvers = JSON.parse(value.maneuvers);
 
             // Overview line
             resultTable += "<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
