@@ -127,7 +127,7 @@ function requestData() {
 
             for (let j = 0; j < maneuvers.length; j++) {
                 resultTable += "<tr><td>" + maneuvers[j].narrative + "</td><td class='center'>" + maneuvers[j].distance +
-                    "</td><td class='center'>" + maneuvers[j].time + "</td><td>" + "<img class='img-result img-box' src='" +
+                    "</td><td class='center'>" + maneuvers[j].time + "</td><td class='img-box'>" + "<img class='img-result img-box' src='" +
                     maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
             }
 
