@@ -113,11 +113,6 @@ function requestData() {
         console.log(date.value);
         console.log(data);
 
-        if (data.info.statuscode != 0) {
-            $("#result").html("Error occured:" + data.info.messages[0]);
-            return;
-        }
-
         var results = data.results;
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
 
