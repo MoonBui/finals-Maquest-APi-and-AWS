@@ -14,7 +14,7 @@ function submitDirections() {
         // data: JSON.stringify(locations)
     }).done(function(data) {
         console.log(data);
-        if (data.info.statusCode != 0) {
+        if (data.info.statuscode != 0) {
             $("#result").html("Error occured:" + data.info.messages[0]);
             return;
         }
