@@ -108,45 +108,55 @@ function requestData() {
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
         var resultTable = "";
 
-        // Overview of search results
-        $("#result").html("");
-        resultTable += "<br> <div style='overflow-x:auto'><table id='table-history'><thead class='thead' id='thead-history'><tr>" + "<td>No.</td>" +
-            "<td>Date & Time</td>" + "<td>From</td>" + "<td>To</td>" +
-            "<td>Number of maneuvers</td>" + "<td></td>" + "</tr></thead><tbody>";
-
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
             var maneuvers = value.maneuvers;
 
-            // Overview line
-            resultTable += "<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
+            $("#tr-headers").append("<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
                 value.length + "</td><td><button class='details accordion-toggle' type='button' data-toggle='collapse' data-target='#collapse" +
-                i + "' aria-expanded='true'> Details </button></td>" + "</tr>";
-
-            // Table that can collapse and show details when clicking button
-            resultTable += "<div id='collapse" + i + "' class='collapse show accordion-body'>";
-            resultTable += "<br> <table class='border accordion-body'><thead class='thead'><tr id='collapse" + i + "'class='accordion-body collapse show' >" + "<td>Narratives</td>" +
-                "<td>Distance</td>" + "<td>Time</td>" +
-                "<td>Thumbnail</td></tr></thead><tbody>";
-
-            for (let j = 0; j < maneuvers.length - 1; j++) {
-                resultTable += "<tr id='collapse" + i + "'class='accordion-body collapse show'><td> " + maneuvers[j].narrative + "</td><td class='center'>" +
-                    maneuvers[j].distance + "</td><td class='center'>" + maneuvers[j].time + "</td><td>" +
-                    "<img class='img-result' src='" + maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
-            }
-
-            //Detail table
-            resultTable += "<tr id='collapse" + i + "'class='accordion-body collapse show'><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
-            resultTable += "<br> <h1 class='elevation-chart'>Elevation Chart</h1>";
-            resultTable += "<img class='accordion-body collapse show' id='chart' src='" + value.chart + "' width='400' height='300'></div>";
-            $("#result").append(resultTable);
+                i + "' aria-expanded='true'> Details </button></td>" + "</tr>");
         }
-        //resultTable += "</tbody></table></div>";
 
-        // Append ending for overview table of results
-        //$("#result").append(resultTable);
-        $("#result").append("</tbody></table></div>");
+        // // Overview of search results
+        // $("#result").html("");
+        // resultTable += "<br> <div style='overflow-x:auto'><table id='table-history'><thead class='thead' id='thead-history'><tr>" + "<td>No.</td>" +
+        //     "<td>Date & Time</td>" + "<td>From</td>" + "<td>To</td>" +
+        //     "<td>Number of maneuvers</td>" + "<td></td>" + "</tr></thead><tbody>";
+
+        // for (let i = 0; i < minLength; i++) {
+        //     var value = JSON.parse(results[i].value);
+        //     var maneuvers = value.maneuvers;
+
+        //     // Overview line
+        //     resultTable += "<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
+        //         value.from + "</td><td>" + value.to + "</td><td class='center'>" +
+        //         value.length + "</td><td><button class='details accordion-toggle' type='button' data-toggle='collapse' data-target='#collapse" +
+        //         i + "' aria-expanded='true'> Details </button></td>" + "</tr>";
+
+        //     // Table that can collapse and show details when clicking button
+        //     resultTable += "<div id='collapse" + i + "' class='collapse show accordion-body'>";
+        //     resultTable += "<br> <table class='border accordion-body'><thead class='thead'><tr id='collapse" + i + "'class='accordion-body collapse show' >" + "<td>Narratives</td>" +
+        //         "<td>Distance</td>" + "<td>Time</td>" +
+        //         "<td>Thumbnail</td></tr></thead><tbody>";
+
+        //     for (let j = 0; j < maneuvers.length - 1; j++) {
+        //         resultTable += "<tr id='collapse" + i + "'class='accordion-body collapse show'><td> " + maneuvers[j].narrative + "</td><td class='center'>" +
+        //             maneuvers[j].distance + "</td><td class='center'>" + maneuvers[j].time + "</td><td>" +
+        //             "<img class='img-result' src='" + maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
+        //     }
+
+        //     //Detail table
+        //     resultTable += "<tr id='collapse" + i + "'class='accordion-body collapse show'><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
+        //     resultTable += "<br> <h1 class='elevation-chart'>Elevation Chart</h1>";
+        //     resultTable += "<img class='accordion-body collapse show' id='chart' src='" + value.chart + "' width='400' height='300'></div>";
+        //     $("#result").append(resultTable);
+        // }
+        // //resultTable += "</tbody></table></div>";
+
+        // // Append ending for overview table of results
+        // //$("#result").append(resultTable);
+        // $("#result").append("</tbody></table></div>");
 
 
 
