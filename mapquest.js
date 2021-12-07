@@ -1,3 +1,6 @@
+// Moon Bui
+// CSE 383 section A
+// Finals 
 var mapURL = "http://www.mapquestapi.com/directions/v2/route?key=";
 var chartURL = "http://open.mapquestapi.com/elevation/v1/chart?key=";
 var key = "6wGZkKsmoHlB0C42ujYQGAD2EKtYWyBA";
