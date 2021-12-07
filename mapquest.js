@@ -25,25 +25,18 @@ function submitDirections() {
         var resultTable = "";
 
         $("#result").html("");
-        // $("#result").append("<br> <table><tr>" + "<th scope='col'>Narratives</th>" +
-        //     "<th scope='col'>Distance</th>" + "<th scope='col'>Time</th>" +
-        //     "<th scope='col'>Thumbnail</th></tr><tbody>")
 
         resultTable += "<br> <table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
             "<td>Distance</td>" + "<td>Time</td>" +
             "<td>Thumbnail</td></tr></thead><tbody>";
 
         for (let i = 0; i < maneuvers.length - 1; i++) {
-            // $("#result").append("<tr><td> " + maneuvers[i].narrative + "</td><td>" +
-            //     maneuvers[i].distance + "</td><td>" + maneuvers[i].time + "</td><td>" +
-            //     "<img class='img-result' src='" + maneuvers[i].mapURL + "'width='250' height='auto'>" + "</td></tr>");
+
             resultTable += "<tr><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
                 maneuvers[i].distance + "</td><td class='center'>" + maneuvers[i].time + "</td><td>" +
                 "<img class='img-result' src='" + maneuvers[i].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
         }
 
-        // $("#result").append("<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>");
-        // $("#result").append("</tbody></table>");
 
         resultTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
         $("#result").append(resultTable);
@@ -94,30 +87,6 @@ function sendToRest(x) {
     });
 }
 
-// Function to show details results when button is clicked
-function showResults(x) {
-    var sth = document.getElementById("detail-result");
-    if (sth != null)
-        sth.innerHTML = "";
-    var maneuvers = JSON.parse(x.value.maneuvers);
-    var detailTable = "";
-
-    for (let i = 0; i < maneuvers.length - 1; i++) {
-        detailTable += "<tr><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
-            maneuvers[i].distance + "</td><td class='center'>" + maneuvers[i].time + "</td><td>" +
-            "<img class='img-result' src='" + maneuvers[i].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
-    }
-
-    detailTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
-    $("#detail-result").append(detailTable);
-
-    var LatLng = route.boundingBox.lr.lat + "," + route.boundingBox.lr.lng + "," + route.boundingBox.ul.lat + "," + route.boundingBox.ul.lng;
-    var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
-
-    $("detail-result").append("<br> <h1 class='elevation-chart'>Elevation Chart</h1>");
-    $("detail-result").append("<img id='chart' src='" + chart + "' width='400' height='300'>");
-}
-
 //Method to get results from db
 function requestData() {
     var date = document.getElementById("date");
@@ -147,14 +116,38 @@ function requestData() {
 
         for (let i = 0; i < minLength; i++) {
             var value = JSON.parse(results[i].value);
+            var maneuvers = JSON.parse(value.maneuvers);
 
+            // Overview line
             resultTable += "<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
-                value.length + "</td><td><button class='details' type='button' onclick='showResults(" + i + ")'> Details </button></td>" + "</tr>";
-        }
-        resultTable += "</tbody></table></div>";
+                value.length + "</td><td><button class='details' type='button' data-toggle='collapse' data-target='#collapse" +
+                i + "' aria-expanded='true' aria-controls='collapse" + i + "'> Details </button></td>" + "</tr>";
 
-        // Append overview table of results
+
+
+
+            // Table that can collapse and show details when clicking button
+            resultTable += "<div id='collapseOne" + i + "' class='collapse show'>";
+            resultTable += "<table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
+                "<td>Distance</td>" + "<td>Time</td>" +
+                "<td>Thumbnail</td></tr></thead><tbody>";
+
+            for (let i = 0; i < maneuvers.length - 1; i++) {
+                resultTable += "<tr><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
+                    maneuvers[i].distance + "</td><td class='center'>" + maneuvers[i].time + "</td><td>" +
+                    "<img class='img-result' src='" + maneuvers[i].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
+            }
+
+            // Detail table
+            resultTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
+            $("#result").append("<br> <h1 class='elevation-chart'>Elevation Chart</h1>");
+            $("#result").append("<img id='chart' src='" + value.chart + "' width='400' height='300'></div>");
+
+        }
+        resultTable += "</tbody></table>";
+
+        // Append ending for overview table of results
         $("#result").append(resultTable);
 
 
