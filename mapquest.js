@@ -31,6 +31,7 @@ function submitDirections() {
         var time = leg.time;
         var maneuvers = leg.maneuvers;
         var resultTable = "";
+        var latLng = "";
 
         $("#result").html("");
 
@@ -39,6 +40,8 @@ function submitDirections() {
             "<td>Thumbnail</td></tr></thead><tbody>";
 
         for (let i = 0; i < maneuvers.length - 1; i++) {
+            latLng += maneuvers[i].startPoint.lat + ",";
+            latLng += maneuvers[i].startPoint.lng + ",";
 
             resultTable += "<tr><td> " + maneuvers[i].narrative + "</td><td class='center'>" +
                 maneuvers[i].distance + "</td><td class='center'>" + maneuvers[i].time + "</td><td>" +
@@ -49,8 +52,8 @@ function submitDirections() {
         resultTable += "<tr><td>" + maneuvers[maneuvers.length - 1].narrative + "</td></tr>" + "</tbody></table>";
         $("#result").append(resultTable);
 
-        var LatLng = route.boundingBox.lr.lat + "," + route.boundingBox.lr.lng + "," + route.boundingBox.ul.lat + "," + route.boundingBox.ul.lng;
-        var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + LatLng;
+        latLng = latLng.substring(0, latLng.length - 1);
+        var chart = chartURL + key + "&shapeFormat=raw&width=425&height=350&latLngCollection=" + latLng;
 
         $("#result").append("<br> <h1 class='elevation-chart'>Elevation Chart</h1>");
         $("#result").append("<img id='chart' src='" + chart + "' width='400' height='300'>");
