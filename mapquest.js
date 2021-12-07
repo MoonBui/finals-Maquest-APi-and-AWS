@@ -113,7 +113,7 @@ function requestData() {
             var value = JSON.parse(results[i].value);
             var maneuvers = value.maneuvers;
 
-            $("#thead-history").append("<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
+            $("#table-body").append("<tr><td>" + (i + 1) + "</td><td class='center'>" + results[i].date + "</td><td>" +
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
                 value.length + "</td><td><button class='details accordion-toggle' type='button' data-toggle='collapse' data-target='#collapse" +
                 i + "' aria-expanded='true'> Details </button></td>" + "</tr>");
