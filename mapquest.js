@@ -106,7 +106,7 @@ function requestData() {
 
         var results = data.results;
         var minLength = (results.length <= maxResult) ? results.length : maxResult;
-        var resultTable = "";
+
 
         $("#thead-history").append("<tr><td>No.</td><td>Date & Time</td><td>From</td><td>To</td><td>Number of maneuvers</td><td></td> </tr>");
         for (let i = 0; i < minLength; i++) {
@@ -117,6 +117,21 @@ function requestData() {
                 value.from + "</td><td>" + value.to + "</td><td class='center'>" +
                 value.length + "</td><td><button class='details accordion-toggle' type='button' data-toggle='collapse' data-target='#collapse" +
                 i + "' aria-expanded='true'> Details </button></td>" + "</tr>");
+
+            $("#table-body").append("<div id='collapse" + i + "' class='collapse show accordion-body'></div>")
+            var resultTable = "<table class='border'><thead class='thead'><tr>" + "<td>Narratives</td>" +
+                "<td>Distance</td>" + "<td>Time</td>" + "<td>Thumbnail</td></tr></thead><tbody>";
+            for (let j = 0; j < maneuvers.length - 1; j++) {
+                resultTable += "<tr><td>" + maneuvers[j].narrative + "</td><td class='center'>" + maneuvers[j].distance +
+                    "</td><td class='center'>" + maneuvers[j].time + "</td><td>" + "<img class='img-result' src='" +
+                    maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
+                // resultTable += "<tr id='collapse" + i + "'class='accordion-body collapse show'><td> " + maneuvers[j].narrative + "</td><td class='center'>" +
+                //     maneuvers[j].distance + "</td><td class='center'>" + maneuvers[j].time + "</td><td>" +
+                //     "<img class='img-result' src='" + maneuvers[j].mapUrl + "'width='250' height='auto'>" + "</td></tr>";
+            }
+
+            resultTable += "</tbody></table>";
+            $("#collapse" + i).append(resultTable);
         }
 
         // // Overview of search results
